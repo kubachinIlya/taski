@@ -149,3 +149,13 @@ jobs:
           push: true
           # Тут вместо username должен быть ваш логин на Docker Hub
           tags: ilyakubashin/taski_gateway:latest
+  send_message:
+    runs-on: ubuntu-latest
+    needs: build_gateway_and_push_to_docker_hub #deploy
+    steps:
+    - name: Send message
+      uses: appleboy/telegram-action@master
+      with:
+        to: ${{ secrets.TELEGRAM_TO }}
+        token: ${{ secrets.TELEGRAM_TOKEN }}
+        message: Деплой успешно выполнен! Bite my shiny metall assie!
