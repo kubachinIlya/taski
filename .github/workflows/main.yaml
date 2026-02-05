@@ -66,7 +66,7 @@ jobs:
       - name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}  # твой логин
+          username: ${{ secrets.DOCKERHUB_USERNAME }}   
           password: ${{ secrets.DOCKERHUB_TOKEN }}
           # Хорошо ли держать логин и пароль прямо в коде workflow?
           # Нет, это нехорошо
@@ -83,4 +83,4 @@ jobs:
           # В параметре tags задаётся название и тег для образа.
           # Для каждого пересобранного образа 
           # устанавливаем тег latest, чтобы потом
-          tags: ваш-логин-на-docker-hub/taski_backend:latest 
+          tags: ilyakubashin/taski_backend:latest 
